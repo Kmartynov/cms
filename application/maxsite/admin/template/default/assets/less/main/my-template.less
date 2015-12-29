@@ -652,6 +652,10 @@ div.page_meta_container {
 					content: @fa-var-files-o;
 				}
 			}
+			
+			a.all-files-upload:before {
+				content: @fa-var-upload;
+			}
 		}
 		
 		div.all-files-result {
@@ -941,6 +945,7 @@ div.all-images {
 				border: 1px solid @g_gray400;
 				padding: 5px;
 				margin-right: 10px;
+				max-width: 150px;
 			}
 			
 			div.cod {
@@ -954,6 +959,8 @@ div.all-images {
 			div.sel {
 				background: @g_gray300;
 				padding: 5px;
+				
+				word-wrap: break-word;
 			}
 			
 			span {
@@ -1121,3 +1128,45 @@ div.pagination {
 	.mar40-t;
 	.mar10-b;
 }
+
+// быстрая загрузка при редактрровании записи
+#upload_filedrag
+{
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px 0;
+	margin: 20px 0;
+	color: #555;
+	border: 2px dashed #555;
+	border-radius: 5px;
+	cursor: default;
+}
+
+#upload_filedrag.hover
+{
+	color: #36D900;
+	border-color: #36D900;
+	border-style: solid;
+}
+
+#upload_progress p
+{
+	display: block;
+	padding: 2px 5px;
+	margin: 2px 0;
+	border-radius: 5px;
+	background: #eee;
+	font-size: .9rem;
+}
+
+#upload_progress p.success
+{
+	background: #0c0 none 0 0 no-repeat;
+}
+
+#upload_progress p.failure
+{
+	background: #c00 none 0 0 no-repeat;
+}
+

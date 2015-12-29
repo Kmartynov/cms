@@ -147,7 +147,7 @@
 
 				);
 
-				
+			// pr($data);	
 			require_once( getinfo('common_dir') . 'functions-edit.php' ); // функции редактирования
 			$result = mso_edit_page($data);
 			
@@ -164,8 +164,17 @@
 
 				}
 				else $url = '';
-
-				echo '<div class="update">' . t('Страница обновлена!') . ' ' . $url . '</div>'; 
+				
+				
+				if (!isset($post['is_bsave'])) // обычное сохранение
+				{
+					echo ' | ' . $url;
+					echo '<div class="update">' . t('Страница обновлена!') . '</div>'; 
+				}
+				else // быстрое/фоновое сохранение
+				{
+					echo '<div class="update">' . t('Страница обновлена!'). ' ' . $url . '</div>'; 
+				}
 				
 				# пулучаем данные страниц
 				$CI->db->select('*');
